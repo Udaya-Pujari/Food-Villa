@@ -1,0 +1,31 @@
+{
+  "name": "food_villa",
+  "version": "1.0.0",
+  "description": "This is the food ordering app by Udaya Pujari",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Udaya-Pujari/Food-Villa.git"
+  },
+  "author": "Udaya Puajari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Udaya-Pujari/Food-Villa/issues"
+  },
+  "homepage": "https://github.com/Udaya-Pujari/Food-Villa#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslists": [
+    "last 2 versions"
+  ]
+}
