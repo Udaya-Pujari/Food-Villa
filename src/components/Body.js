@@ -78,7 +78,7 @@ const Body = () => {
           Top Rated Restaurent
         </button>
       </div>
-      <div className="res-container">
+      <div id="" className="res-container">
         {filteredRestaurent.map((restaurant) => {
           // <RestaurentCard key={restaurant.info.id} resData={restaurant} />;
           if (restaurant && restaurant?.info && restaurant?.info?.id) {
