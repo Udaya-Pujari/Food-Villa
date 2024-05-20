@@ -45,6 +45,9 @@ const RestaurentMenu = () => {
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card;
   console.log(itemCards);
 
+  //when we click on the resturent we get the menu card with categories like,recommended,newly added accordian
+  
+
   return (
     <>
       <div>
@@ -58,7 +61,7 @@ const RestaurentMenu = () => {
             {itemCards.map((item) => {
               return (
                 <li key={item.card.info.id}>
-                  {item.card.info.name} -{" ₹ "}
+                  {/* {item.card.info.name} -{" ₹ "} */}
                   {item.card.info.price / 100 ||
                     item.card.info.defaultPrice / 100}
                 </li>

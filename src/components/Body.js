@@ -1,9 +1,10 @@
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard, { withPromotedLabel } from "./RestaurentCard";
 // import resList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "./UserContext";
 
 const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
@@ -11,9 +12,15 @@ const Body = () => {
   const [filteredRestaurent, setFilteredRestaurent] = useState([]);
   const [searchText, setSearchText] = useState("");
   //  NOTE: When ever a state variables updates,react re-renders
+
+  //now create restocard component which has promoted label on it
+  const RestaurentCardPromoted = withPromotedLabel(RestaurentCard);
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  console.log(listOfRestaurents);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -47,6 +54,8 @@ const Body = () => {
       </>
     );
   }
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   return listOfRestaurents.length === 0 ? (
     <Shimmer />
@@ -92,6 +101,14 @@ const Body = () => {
             Top Rated Restaurent
           </button>
         </div>
+        <div className="search m-4 p-4  py-8">
+          <label>User Name : </label>
+          <input
+            className="border border-black p-1"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div id="" className="flex flex-wrap ml-8">
         {filteredRestaurent.map((restaurant) => {
@@ -103,7 +120,13 @@ const Body = () => {
                   key={restaurant.info.id}
                   to={"/restaurants/" + restaurant.info.id}
                 >
-                  <RestaurentCard resData={restaurant} />
+                  {/* if the restaurent is promoted then  add a promoted label to it */}
+                  {restaurant.info.promoted ? (
+                    <RestaurentCardPromoted resData={restaurant} />
+                  ) : (
+                    <RestaurentCard resData={restaurant} />
+                  )}
+                  {/* <RestaurentCard resData={restaurant} /> */}
                 </Link>
               </>
             );
