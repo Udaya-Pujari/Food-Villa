@@ -38,5 +38,45 @@ return (
 
 -> hooks are normal js utility functions
 
-- useState()  => used to generate the super-powerful state variables in react
+- useState() => used to generate the super-powerful state variables in react
 - useEffect()
+
+- lifting state in react js
+  import React, { useState } from 'react';
+  const App=()=>{
+  return(
+  <>
+  <Parent/>
+  </>
+  )
+  }
+
+const Parent=()=>{
+const [first,setFirst]=useState("Parent to child")
+return(
+<>
+<p>Parent</p>
+<Child name={first}  setName={setFirst} />
+</>
+)
+}
+
+const Child=(props)=>{
+return(
+<>
+<p>child : {props.name}</p>
+<button onClick={()=>props.setName("child to parent")}>Click me </button>
+</>
+)
+}
+
+export default App;
+
+
+# redux toolkit
+ - install @reduxjs/toolkit and react-redux.
+ - build our app
+ - connect our store to our app 
+ - create a cart slice 
+ - dispatch an action 
+ - read the data using selector 
