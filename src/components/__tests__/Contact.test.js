@@ -4,6 +4,21 @@ import "@testing-library/jest-dom";
 
 describe("Contact us page test cases",()=>{
 
+  beforeAll(()=>{
+    console.log('Before all')
+  })
+  beforeEach(()=>{
+    console.log("Before Each");
+  })
+
+  afterAll(()=>{
+    console.log("After All")      
+  })
+
+  afterEach(()=>{
+    console.log("After each")
+  })
+
   //NOTE: insted of writing test we can just write it
   test("Should laod the contact us component", () => {
     //when ever you are testing ui component inside react ,you will have to render that component on to js dom

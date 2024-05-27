@@ -8,6 +8,7 @@ const RestaurentCard = (props) => {
     resData?.info;
   return (
     <div
+      data-id="resCard"
       className="m-4 p-4 w-[325px] h-[250px] rounded-lg bg-gray-200 hover:bg-gray-400"
       // style={{ backgroundColor: "#f0f0f0" }}
     >
